@@ -1,0 +1,160 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Pilog Group",
+    "description": "APIs for Pilog Repository",
+    "termsOfService": "Terms of Service: Need to Update",
+    "contact": {
+      "name": "Pilog Group",
+      "url": "https://www.piloggroup.com",
+      "email": "supportsap@piloggroup.com"
+    },
+    "license": {
+      "name": "Copyright © 2024 PiLog Group",
+      "url": "Pilog Repository"
+    },
+    "version": "1.0"
+  },
+  "x-company": "Company Name",
+  "x-contact": "contact@email.com",
+  "servers": [
+    {
+      "url": "http://localhost:9998",
+      "description": "Inferred Url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "pilog-controller",
+      "description": "Pilog Controller"
+    }
+  ],
+  "paths": {
+    "/PIOntology/PiLogRepository": {
+      "post": {
+        "tags": [
+          "pilog-controller"
+        ],
+        "summary": "searchRepository",
+        "operationId": "searchRepositoryUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RepositorySearchRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RepositorySearchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/PIOntology/hello": {
+      "get": {
+        "tags": [
+          "pilog-controller"
+        ],
+        "summary": "testing",
+        "operationId": "testingUsingGET",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RepositorySearchRequest": {
+        "title": "RepositorySearchRequest",
+        "type": "object",
+        "properties": {
+          "filterData": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "orgn_id": {
+            "type": "string"
+          },
+          "pageSize": {
+            "type": "string"
+          },
+          "pagenum": {
+            "type": "string"
+          },
+          "projectionFields": {
+            "type": "string"
+          },
+          "recordendindex": {
+            "type": "string"
+          },
+          "recordstartindex": {
+            "type": "string"
+          },
+          "searchData": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "REPOSITORY_SEARCH_REQUEST",
+          "attribute": false,
+          "wrapped": false
+        }
+      }
+    },
+    "securitySchemes": {
+      "Api-Key": {
+        "type": "apiKey",
+        "name": "Api-Key",
+        "in": "header"
+      }
+    }
+  }
+}
